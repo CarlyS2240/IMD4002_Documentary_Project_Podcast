@@ -56,10 +56,13 @@
         <a-asset-item id="rug-obj" crossorigin="anonymous" src="/assets/rug.glb"></a-asset-item> 
         
         <a-assets>
-
             <video id="video" src="/videos/test.mp4"></video>
+            <video id="video2" src="/videos/test.mp4"></video>
             <img id="play" src="/images/play.png">
             <img id="pause" src="/images/pause.png">
+            
+            <img id="play2" src="/images/play.png">
+            <img id="pause2" src="/images/pause.png">
         </a-assets>
 
     <!--Room-->
@@ -178,7 +181,12 @@
     <a-video class="video" src="#video" position="0 2.1 0" rotation="0 180 0" width="3" height="1.8" opacity="0.9">
         <a-image id="videoControls" src="#play" position="0 -1.086 0" scale="0.3 0.3 0.3" play-pause></a-image>
     </a-video>
-    <a-videosphere class="video" src="#video"></a-videosphere>
+
+
+    <a-video class="video2" src="#video2" position="-4.259 2.505 1.907" rotation="0 90 0" width="1.6" height="1.8">
+        <a-image id="videoControls2" src="#play2" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
+    </a-video>
+    
 
     </a-scene>
 
@@ -189,35 +197,42 @@
 </html>
 
 <script>
-   /* var scene = document.querySelector("a-scene");
-    var vid = document.getElementById("video");
-
-    if (scene.hasLoaded) {
-      run();
-    } else {
-      scene.addEventListener("loaded", run);
-    }
-
-    function run () {
-        scene.querySelector(".a-enter-vr-button").addEventListener("click", function(e){
-            console.log("VR Mode entered");
-            this.style.display = "none";
-            vid.play();
-        }, false);
-    }*/
     AFRAME.registerComponent('play-pause', {
         init: function(){
-            var myVideo = document.querySelector('#video');
-            var videoControls = document.querySelector('#videoControls');
-            this.el.addEventListener('click', function () {
-                if (myVideo.paused) {
-                    myVideo.play();
-                    videoControls.setAttribute('src', '#pause');
-                } else {
-                    myVideo.pause();
-                    videoControls.setAttribute('src', '#play');
-                }
+
+            const element = document.querySelector('#videoControls')
+            const element2 = document.querySelector('#videoControls2')
+            
+            element.addEventListener("click", () => {
+                console.log('%c My message here', "background: blue; color: white; padding-left:10px;");
+                var myVideo = document.querySelector('#video');
+                var videoControls = document.querySelector('#videoControls');
+                this.el.addEventListener('click', function () {
+                    if (myVideo.paused) {
+                        myVideo.play();
+                        videoControls.setAttribute('src', '#pause');
+                    } else {
+                        myVideo.pause();
+                        videoControls.setAttribute('src', '#play');
+                    }
              
+                });
+            });
+
+            element2.addEventListener("click", () => {
+                console.log('%c My message here', "background: red; color: white; padding-left:10px;");
+                var myVideo2 = document.querySelector('#video2');
+                var videoControls2 = document.querySelector('#videoControls2');
+                this.el.addEventListener('click', function () {
+                    if (myVideo2.paused) {
+                        myVideo2.play();
+                        videoControls2.setAttribute('src', '#pause2');
+                    } else {
+                        myVideo2.pause();
+                        videoControls2.setAttribute('src', '#play2');
+                    }
+                
+                });
             });
         }
     })
