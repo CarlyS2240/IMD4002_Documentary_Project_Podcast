@@ -10,230 +10,268 @@
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-multi-video-component/dist/aframe-multi-video-component.min.js"></script>
 
-    <script type="text/javascript">
-        AFRAME.registerComponent('start-experience',{
-                init: function() {
-                    console.log('scene loaded');
-                }
-              });
-    
-              const startExperience = function(){
-                  
-                //Hide user gesture overlay
-                  document.querySelector('#overlay').style.display = 'none';
-    
-                  //Play the background music
-                  const ambientSounds = document.querySelectorAll('.ambient-music');
-                  ambientSounds.forEach(function(soundEntity){
-                        soundEntity.components.sound.playSound();
-    
-                  });
-        
-              }
-    </script>
+    <!--Custom Components-->
+    <script src="js/play-pause.js"></script>
+    <script src="js/sphere-env-map.js"></script>
+    <script src="js/load-experience.js"></script>
+
+    <!--Styles-->
+    <link rel="stylesheet" href="/css/loading_animation.css">
 
     
 </head>
 
-<body>
-    <a-scene renderer="gammaOutput: true;" fog="type: linear; color: #F26666; far: 140; near: 0">
+    <body>
+        <!--Loading Screen-->
+        <div id="user-gesture-overlay">
+            <div class= "center">
+                <img id="loading-animation" src="/images/loading.gif">
+            </div>
 
-        <img id='skyMap' src='/textures/107_hdrmaps_com_free.jpg' crossorigin="anonymous">  
+            <div id="continue-container">
+                <div class ="continue-parent">
+                    <div class="continue-child"><img id="continue-bear" src="/images/podcast.png"></div>
+                    <div class="continue-child continue-text">VR:Future of Education podcast is ready for you to explore.</div>
+                    <div class="continue-child"><button id="user-gesture-button" onclick="loadExperience();">BEGIN</button></div>
+                </div>
+            </div>
+        </div>
+
+        <!--A-Frame Scene-->
+        <a-scene load-experience renderer="gammaOutput: true;" fog="type: linear; color: #F26666; far: 140; near: 0">
+            
+            <!--Sky Map-->
+            <img id='skyMap' src='/textures/107_hdrmaps_com_free.jpg' crossorigin="anonymous">  
+
+            <!--Envrionment Assets-->
+                <a-asset-item id="white-room-obj" crossorigin="anonymous" src="/assets/whiteRoom.glb"></a-asset-item> 
+                <a-asset-item id="show-room-obj" crossorigin="anonymous" src="/assets/Show_Room.glb"></a-asset-item> 
+                <a-asset-item id="lamp-obj" crossorigin="anonymous" src="/assets/lamp.glb"></a-asset-item> 
+                <a-asset-item id="table-obj" crossorigin="anonymous" src="/assets/table.glb"></a-asset-item> 
+                <a-asset-item id="plants-obj" crossorigin="anonymous" src="/assets/plants.glb"></a-asset-item> 
+                <a-asset-item id="sofa-obj" crossorigin="anonymous" src="/assets/sofa.glb"></a-asset-item> 
+                <a-asset-item id="chair-obj" crossorigin="anonymous" src="/assets/chair.glb"></a-asset-item> 
+                <a-asset-item id="stool-obj" crossorigin="anonymous" src="/assets/stool.glb"></a-asset-item> 
+                <a-asset-item id="shelf-obj" crossorigin="anonymous" src="/assets/shelf.glb"></a-asset-item> 
+                <a-asset-item id="apples-obj" crossorigin="anonymous" src="/assets/apples.glb"></a-asset-item> 
+                <a-asset-item id="light-obj" crossorigin="anonymous" src="/assets/light.glb"></a-asset-item> 
+                <a-asset-item id="rug-obj" crossorigin="anonymous" src="/assets/rug.glb"></a-asset-item> 
+                <a-asset-item id="books-obj" crossorigin="anonymous" src="/assets/books.glb"></a-asset-item> 
+                <a-asset-item id="coffee-obj" crossorigin="anonymous" src="/assets/coffee.glb"></a-asset-item> 
+                <a-asset-item id="small-table-obj" crossorigin="anonymous" src="/assets/small_table.glb"></a-asset-item> 
+                <a-asset-item id="mirror-obj" crossorigin="anonymous" src="/assets/mirror.glb"></a-asset-item> 
+                <a-asset-item id="microphone-obj" crossorigin="anonymous" src="/assets/microphone.glb"></a-asset-item> 
+            
+            <!--Video Assets-->
+                <a-assets>
+                    <video id="video" src="/videos/test.mp4"></video>
+                    <img id="play" src="/images/play.png">
+                    <img id="pause" src="/images/pause.png">
+                    
+                    <video id="video2" src="/videos/test.mp4"></video>
+                    <img id="play2" src="/images/play.png">
+                    <img id="pause2" src="/images/pause.png">
+
+                    <video id="video3" src="/videos/test.mp4"></video>
+                    <img id="play3" src="/images/play.png">
+                    <img id="pause3" src="/images/pause.png">
+
+                    <video id="video4" src="/videos/test.mp4"></video>
+                    <img id="play4" src="/images/play.png">
+                    <img id="pause4" src="/images/pause.png">
+
+                    <video id="video5" src="/videos/test.mp4"></video>
+                    <img id="play5" src="/images/play.png">
+                    <img id="pause5" src="/images/pause.png">
+                </a-assets>
+
+            <!--Environment Model Entities-->
+                <a-entity
+                    id="white-room-obj"
+                    gltf-model="#white-room-obj"
+                    position="0 -0.070 0"
+                    scale="1.5 1.7 1.5">
+                </a-entity>
+
+                <a-entity
+                id="lamp-obj"
+                gltf-model="#lamp-obj"
+                position="2.613 -0.150 4.762"
+                rotation="0 160 0"
+                scale="0.002 0.002 0.002"
+                sphere-env-map="src:#skyMap">
+            </a-entity>
+
+            <a-entity
+                id="small-table-obj"
+                gltf-model="#small-table-obj"
+                position="1.487 -0.0013 2.221"
+                rotation="0 130 0"
+                scale="2 2 2">
+            </a-entity>
+
+            <a-entity
+                id="table-obj"
+                gltf-model="#table-obj"
+                position="-1.070 0 0.106"
+                scale="0.0018 0.0018 0.0018">
+            </a-entity>
+
+            <a-entity
+                id="plants-obj"
+                gltf-model="#plants-obj"
+                position="-3.113 0 3.500"
+                scale="1.5 1.5 1.5"
+                rotation="0 137.580 0"
+                sphere-env-map="src:#skyMap">
+            </a-entity>
+
+            <a-entity
+                id="sofa-obj"
+                gltf-model="#sofa-obj"
+                position="-3.001 0 -0.513"
+                scale="0.0015 0.0015 0.0015"
+                rotation="0 90 0">
+            </a-entity>
+
+            <a-entity
+                id="chair-obj"
+                gltf-model="#chair-obj"
+                position="2.094 0.303 1.935"
+                scale="1 1 1"
+                rotation="0 -140 0"
+                sphere-env-map="src:#skyMap">
+            </a-entity>
+
+            <a-entity
+                id="stool-obj"
+                gltf-model="#stool-obj"
+                position="1.643 0.425 -2.799"
+                scale="1.3 1.3 1.3"
+                rotation="0 130 0">
+            </a-entity>
+
+            <a-entity
+                id="shelf-obj"
+                gltf-model="#shelf-obj"
+                position="4.299 -0.059 -1.823"
+                scale="0.8 0.8 0.8"
+                rotation="0 -90 0"
+                sphere-env-map="src:#skyMap">
+            </a-entity>
+
+            <a-entity
+                id="apples-obj"
+                gltf-model="#apples-obj"
+                position="3.920 1.245 0.146"
+                scale="0.002 0.002 0.002"
+                rotation="0 -90 0">
+            </a-entity>
+
+            <a-entity
+                id="microphone-obj"
+                gltf-model="#microphone-obj"
+                position="-0.352 0.696 -0.931"
+                scale="0.025 0.025 0.025"
+                rotation="0 0 0"
+                sphere-env-map="src:#skyMap">
+            </a-entity>
+
+            <a-entity
+                id="coffee-obj"
+                gltf-model="#coffee-obj"
+                position="-0.763 0.714 -0.520"
+                scale="1.5 1.5 1.5"
+                rotation="0 0 0">
+            </a-entity>
+
+            <a-entity
+                id="coffee-obj-two"
+                gltf-model="#coffee-obj"
+                position="0.806 1.164 2.525"
+                scale="1.5 1.5 1.5"
+                rotation="0 0 0">
+            </a-entity>
+
+            <a-entity
+                id="light-obj"
+                gltf-model="#light-obj"
+                position="3.909 1.435 -2.217"
+                scale="2 2 2"
+                rotation="0 -90 0"
+                sphere-env-map="src:#skyMap">
+            </a-entity>
+
+            <a-entity
+                id="rug-obj"
+                gltf-model="#rug-obj"
+                position="0.104 -0.414 -0.655"
+                scale="0.003 0.003 0.003"
+                rotation="0 -90 0">
+            </a-entity>
+
+            <a-entity
+                id="mirror-obj"
+                gltf-model="#mirror-obj"
+                position="0.665 2.227 -5.250"
+                scale="2 2 2"
+                rotation="0 0 0"
+                sphere-env-map="src:#skyMap">
+            </a-entity>
+
+            <a-entity
+                id="books-obj"
+                gltf-model="#books-obj"
+                position="4.084 1.158 -0.979"
+                scale="0.2 0.2 0.2"
+                rotation="0 -180 0">
+            </a-entity>
 
 
-    <!--Envrionment Assets-->
-        <a-asset-item id="white-room-obj" crossorigin="anonymous" src="/assets/whiteRoom.glb"></a-asset-item> 
-        <a-asset-item id="show-room-obj" crossorigin="anonymous" src="/assets/Show_Room.glb"></a-asset-item> 
-        <a-asset-item id="lamp-obj" crossorigin="anonymous" src="/assets/lamp.glb"></a-asset-item> 
-        <a-asset-item id="table-obj" crossorigin="anonymous" src="/assets/table.glb"></a-asset-item> 
-        <a-asset-item id="plants-obj" crossorigin="anonymous" src="/assets/plants.glb"></a-asset-item> 
-        <a-asset-item id="sofa-obj" crossorigin="anonymous" src="/assets/sofa.glb"></a-asset-item> 
-        <a-asset-item id="chair-obj" crossorigin="anonymous" src="/assets/chair.glb"></a-asset-item> 
-        <a-asset-item id="stool-obj" crossorigin="anonymous" src="/assets/stool.glb"></a-asset-item> 
-        <a-asset-item id="shelf-obj" crossorigin="anonymous" src="/assets/shelf.glb"></a-asset-item> 
-        <a-asset-item id="apples-obj" crossorigin="anonymous" src="/assets/apples.glb"></a-asset-item> 
-        <a-asset-item id="light-obj" crossorigin="anonymous" src="/assets/light.glb"></a-asset-item> 
-        <a-asset-item id="rug-obj" crossorigin="anonymous" src="/assets/rug.glb"></a-asset-item> 
+            <a-entity id='skyBox'
+                        rotation='0 240 0'
+                        geometry='primitive:sphere; radius:50; segments-height:24; segments-width:24;'
+                        material='shader:flat; src:#skyMap; side:back;'>
+            </a-entity>
+
+            <!--Player Controls-->
+            <a-entity id="player" movement-controls="speed:0.2;" position="0 2.1 -5" rotation="0 -180 0">
+                <a-entity id="camera"
+                    id = "player2"
+                    camera="fov:  50;"
+                    wasd-controls='acceleration: 200'
+                    look-controls>
+                    <a-cursor></a-cursor>
+                </a-entity>
+            </a-entity>
+
+            <!--Lighting-->
+            <a-entity id="light_main" light="type: ambient; color: #F2955E; intensity:1" ></a-entity>
+                <a-entity id="light_spot" light="type: point; castShadow: true; shadowRadius: 2.5; color: #ff7e14" position="-4.3084 2.36241 11.19663"></a-entity>
+                <a-entity id="light_spot" light="type: point; intensity: 0.1; castShadow: true; shadowRadius: 4.16; color: #ffffff; angle: 0; decay: 0.89" position="2.26954 2.49372 2.74637" scale="0.5 0.5 0.5"></a-entity>
+            </a-entity>
+
+            <!--Videos-->
+            <a-video class="video" src="#video" position="0 2.1 0" rotation="0 180 0" width="3" height="1.8" opacity="0.9">
+                <a-image id="videoControls" src="#play" position="0 -1.086 0" scale="0.3 0.3 0.3" play-pause></a-image>
+            </a-video>
+
+            <a-video class="video2" src="#video2" position="-4.259 2.505 1.907" rotation="0 90 0" width="1.6" height="1.8">
+                <a-image id="videoControls2" src="#play2" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
+            </a-video>
+
+            <a-video class="video3" src="#video3" position="-4.259 2.505 -2.518" rotation="0 90 0" width="1.6" height="1.8">
+                <a-image id="videoControls3" src="#play3" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
+            </a-video>
+
+            <a-video class="video4" src="#video4" position="4.253 2.490 -3.440" rotation="0 -90 0" width="1.6" height="1.8">
+                <a-image id="videoControls4" src="#play4" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
+            </a-video>
+
+            <a-video class="video5" src="#video5" position="4.253 2.490 1.263" rotation="0 -90 0" width="1.6" height="1.8">
+                <a-image id="videoControls5" src="#play5" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
+            </a-video>
         
-        <a-assets>
-            <video id="video" src="/videos/test.mp4"></video>
-            <video id="video2" src="/videos/test.mp4"></video>
-            <img id="play" src="/images/play.png">
-            <img id="pause" src="/images/pause.png">
-            
-            <img id="play2" src="/images/play.png">
-            <img id="pause2" src="/images/pause.png">
-        </a-assets>
-
-    <!--Room-->
-        <a-entity
-            id="white-room-obj"
-            gltf-model="#white-room-obj"
-            position="0 -0.070 0"
-            scale="1.5 1.7 1.5">
-        </a-entity>
-
-        <a-entity
-        id="lamp-obj"
-        gltf-model="#lamp-obj"
-        position="7.3 -0.150 10.139"
-        rotation="0 188 0"
-        scale="0.0015 0.0015 0.0015">
-    </a-entity>
-
-    <a-entity
-        id="table-obj"
-        gltf-model="#table-obj"
-        position="-1.070 0 0.106"
-        scale="0.0018 0.0018 0.0018">
-    </a-entity>
-
-    <a-entity
-        id="plants-obj"
-        gltf-model="#plants-obj"
-        position="-3.113 0 3.500"
-        scale="1.5 1.5 1.5"
-        rotation="0 137.580 0">
-    </a-entity>
-
-    <a-entity
-        id="softa-obj"
-        gltf-model="#sofa-obj"
-        position="-3.001 0 -0.513"
-        scale="0.0015 0.0015 0.0015"
-        rotation="0 90 0">
-    </a-entity>
-
-    <a-entity
-        id="chair-obj"
-        gltf-model="#chair-obj"
-        position="2.094 0.303 1.935"
-        scale="1 1 1"
-        rotation="0 -140 0">
-    </a-entity>
-
-    <a-entity
-        id="stool-obj"
-        gltf-model="#stool-obj"
-        position="1.885 -0.059 -2.406"
-        scale="1.3 1.3 1.3"
-        rotation="0 -130 0">
-    </a-entity>
-
-    <a-entity
-        id="shelf-obj"
-        gltf-model="#shelf-obj"
-        position="4.299 -0.059 -1.823"
-        scale="0.8 0.8 0.8"
-        rotation="0 -90 0">
-    </a-entity>
-
-    <a-entity
-        id="apples-obj"
-        gltf-model="#apples-obj"
-        position="3.920 1.245 0.146"
-        scale="0.002 0.002 0.002"
-        rotation="0 -90 0">
-    </a-entity>
-
-    <a-entity
-        id="light-obj"
-        gltf-model="#light-obj"
-        position="3.909 1.435 -2.217"
-        scale="2 2 2"
-        rotation="0 -90 0">
-    </a-entity>
-
-    <a-entity
-        id="rug-obj"
-        gltf-model="#rug-obj"
-        position="0.104 -0.414 -0.655"
-        scale="0.003 0.003 0.003"
-        rotation="0 -90 0">
-    </a-entity>
-
-
-    <a-entity id='skyBox'
-                rotation='0 240 0'
-                geometry='primitive:sphere; radius:50; segments-height:24; segments-width:24;'
-                material='shader:flat; src:#skyMap; side:back;'>
-      </a-entity>
-
-      <!--Player Controls-->
-      <a-entity id="player" movement-controls="speed:0.2;" position="0 2.1 -5" rotation="0 -180 0">
-        <a-entity id="camera"
-            id = "player2"
-            camera="fov:  50;"
-            wasd-controls='acceleration: 200'
-            look-controls>
-            <a-cursor></a-cursor>
-        </a-entity>
-    </a-entity>
-
-    <!--Lighting-->
-    <a-entity id="light_main" light="type: ambient; color: #F2955E; intensity:1" ></a-entity>
-    <a-entity id="light_spot" light="type: point; castShadow: true; shadowRadius: 2.5; color: #ff7e14" position="-4.3084 2.36241 11.19663">
-    </a-entity>
-    <a-entity id="light_spot" light="type: point; intensity: 0.1; castShadow: true; shadowRadius: 4.16; color: #ffffff; angle: 0; decay: 0.89" position="2.26954 2.49372 2.74637" scale="0.5 0.5 0.5">
-    </a-entity>
-    </a-entity>
-
-    <a-video class="video" src="#video" position="0 2.1 0" rotation="0 180 0" width="3" height="1.8" opacity="0.9">
-        <a-image id="videoControls" src="#play" position="0 -1.086 0" scale="0.3 0.3 0.3" play-pause></a-image>
-    </a-video>
-
-
-    <a-video class="video2" src="#video2" position="-4.259 2.505 1.907" rotation="0 90 0" width="1.6" height="1.8">
-        <a-image id="videoControls2" src="#play2" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
-    </a-video>
-    
-
-    </a-scene>
-
-   
-    
-
-</body>
+        </a-scene>
+    </body>
 </html>
-
-<script>
-    AFRAME.registerComponent('play-pause', {
-        init: function(){
-
-            const element = document.querySelector('#videoControls')
-            const element2 = document.querySelector('#videoControls2')
-            
-            element.addEventListener("click", () => {
-                console.log('%c My message here', "background: blue; color: white; padding-left:10px;");
-                var myVideo = document.querySelector('#video');
-                var videoControls = document.querySelector('#videoControls');
-                this.el.addEventListener('click', function () {
-                    if (myVideo.paused) {
-                        myVideo.play();
-                        videoControls.setAttribute('src', '#pause');
-                    } else {
-                        myVideo.pause();
-                        videoControls.setAttribute('src', '#play');
-                    }
-             
-                });
-            });
-
-            element2.addEventListener("click", () => {
-                console.log('%c My message here', "background: red; color: white; padding-left:10px;");
-                var myVideo2 = document.querySelector('#video2');
-                var videoControls2 = document.querySelector('#videoControls2');
-                this.el.addEventListener('click', function () {
-                    if (myVideo2.paused) {
-                        myVideo2.play();
-                        videoControls2.setAttribute('src', '#pause2');
-                    } else {
-                        myVideo2.pause();
-                        videoControls2.setAttribute('src', '#play2');
-                    }
-                
-                });
-            });
-        }
-    })
-</script>
