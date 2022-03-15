@@ -61,6 +61,14 @@
     color: #011C40;
   }
 
+  .continue-sub-title{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: #011C40;
+  }
+
   #continue-bear{
     width:148px;
     height:148px;
@@ -109,6 +117,18 @@
     margin-bottom: 0rem;
     z-index: 999999999999;
 
+  }
+
+  .instructions{
+      
+    display: flex;
+    position: relative;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    width: 100%;
+    colour: #011C40;
+    
   }
   
 
