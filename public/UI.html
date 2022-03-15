@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Project Endangered</title>
+    <meta name="description" content="Project Endagered WebVR">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+       <!--Styles-->
+       <link rel="stylesheet" href="/css/loading_animation.css">
+
+       <!--Fonts-->
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap" rel="stylesheet">
+   
+    <!--Loading Screen-->
+    <div id="user-gesture-overlay">
+        <div class= "center">
+            <img id="loading-animation" src="/images/loading.gif">
+        </div>
+
+        <div id="continue-container">
+            <div class ="continue-parent">
+                <div class="continue-child continue-title"><span style="font-style: italic;">VR: Future of Education</span> podcast Immersive Experience</div>
+                <div class="continue-child continue-text">Welcome to the immersive virtual reality experience of the VR: Future of Education podcast by Like a Girl Productions!  Visit this web-VR environment to listen to our podcast series immersively. Here, you will learn about what VR, its history, how is is used to enhance education, and how it relates to culture.</div>
+                <hr style="height: 30px;;width:100%;text-align:left;margin-left:0;background-color:#011C40">
+                <div class="continue-sub-title">Web-VR Controls</div>
+                <div class="instructions">
+                    <div class="continue-child continue-WASD-Controls">Use the arrow or WASD keys to move around.
+                        <div class="keys-image"><img class="Keys_Image" src="/images/keys.png"></div>
+                    </div>
+                    <div class="continue-child continue-videos">Position the ring over the play button 
+                        and left click to play.
+                        <div class="mouse-image"><img class="Mouse_Image" src="/images/mouse.png"></div>
+                    </div>
+                </div>
+                <div class="continue-child"><button id="user-gesture-button" onclick="loadExperience();">ENTER</button></div>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+</body>
+</html>
