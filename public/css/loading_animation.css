@@ -102,7 +102,7 @@
     width: 930px;
     height: 580px;
     margin: 0;
-    background: #FFFAF3;
+    background: #fffaf3;
     flex-direction: column;
     border-radius: 12px;
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
@@ -146,6 +146,14 @@
     padding-bottom: 60px;
  
     
+  }
+
+  .line{
+    height: 100px;
+    width:100%;
+    text-align:left;
+    margin-left:0;
+    border-top: 2px solid #011C40;
   }
 
 
