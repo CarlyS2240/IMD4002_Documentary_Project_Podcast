@@ -7,9 +7,21 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #F2C185;
     z-index: 999999999;
     cursor: pointer;
+  }
+
+  .background{
+    background-color: #f2c185;
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999999;
   }
   
   .center {
@@ -20,6 +32,8 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
+    
+
   }
   
   #loading-animation {
@@ -77,12 +91,7 @@
     color: #011C40;
     padding-bottom: 20px;
   }
-
-  #continue-bear{
-    width:148px;
-    height:148px;
-  }
-
+  
   #continue-container{
     display: none;
     align-items: center;
@@ -92,6 +101,7 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     font-size: 3rem;
+    background-color: #ffffff00;
   }
 
   .continue-parent{
@@ -102,7 +112,7 @@
     width: 930px;
     height: 580px;
     margin: 0;
-    background: #fffaf3;
+    background: #fffaf3e8;
     flex-direction: column;
     border-radius: 12px;
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
@@ -164,45 +174,28 @@
     and (max-device-width: 480px)
     and (-webkit-min-device-pixel-ratio: 2)
     and (orientation: landscape) */
-    @media only screen and (max-height: 480px)
+    @media only screen and (max-width: 1300px)
     {
-
-      .continue-text{
-        text-align: center;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 400;
-        font-size: 16px;
-        color: #011C40;
-      }
-    
-      #continue-bear{
-        width:74px;
-        height:74px;
-      }
     
       #continue-container{
-        display: none;
-        align-items: center;
-        justify-content: center;
-        min-width: 100vw;
+
         z-index: 999999999999;
+        overflow-y: scroll;
+        padding-top: 150px;
+        padding-bottom: 50px;
       }
+
+      #continue-container::-webkit-scrollbar {
+        display: none;
+    }
     
       .continue-parent{
     
         display: flex;
         flex-direction: column;
         z-index: 9999;
-        width: 350px;
+        width: 950px;
         margin: 0;
-        background: #F8F8F8;
-        flex-direction: column;
-        border-radius: 50px;
-        box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
-        padding-left:3rem;
-        padding-right:3rem;
-        padding-bottom: 2rem;
-        padding-top: 2rem;
         z-index: 999999999999;
         justify-content: center;
         align-items: center;
@@ -211,14 +204,25 @@
     
       .continue-child{
         flex: 1 1 100%;
-        color: #013440;
         text-align: center;
         justify-content: center;
         align-items: center;
         align-content: center;
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
         z-index: 999999999999;
+        color: #011C40;
     
     }
+  }
+
+  @media only screen and (max-height: 600px)
+    {
+    
+      #continue-container{
+
+        z-index: 999999999999;
+        overflow-y: scroll;
+        padding-top: 260px;
+        padding-bottom: 50px;
+      }
+    
   }

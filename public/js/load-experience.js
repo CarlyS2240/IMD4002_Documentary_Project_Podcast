@@ -4,6 +4,7 @@ AFRAME.registerComponent('load-experience',{
 
         document.querySelector('#continue-container').style.display = 'flex';
         document.querySelector('#loading-animation').style.display = 'none';
+        document.querySelector('#background').style.display = 'none';
     }
   });
 
