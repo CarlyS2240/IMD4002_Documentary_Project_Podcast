@@ -15,10 +15,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap" rel="stylesheet">
      
-
     <!--External Components-->
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-multi-video-component/dist/aframe-multi-video-component.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!--Play/Pause custom script-->
+    <script src="js/play-pause.js"></script>
+    <script src="js/sphere-env-map.js"></script>
+    <script src="js/load-experience.js"></script>
+          
+
 
     <!--Script to load in in the user interface-->
     <script> 
@@ -30,18 +37,18 @@
             qr.onload=function(){includedContent.innerHTML=qr.responseText}
             };load_page();
     
-        </script>
+    </script>
     
 </head>
 
     <body>
 
-        <!--Custom Components-->
-        <script src="js/sphere-env-map.js"></script>
-        <script src="js/load-experience.js"></script>
+
        
 
-        <div id="includedContent"></div>    
+        <div id="includedContent"></div>
+        
+        
 
         <!--A-Frame Scene-->
         <a-scene load-experience renderer="gammaOutput: true;" fog="type: linear; color: #F26666; far: 140; near: 0">
@@ -77,19 +84,22 @@
                     <video id="video2" src="/videos/Episode_Vickey.mp3"></video>
                     <img id="play2" src="/images/play.png">
                     <img id="pause2" src="/images/pause.png">
-                    <img id="cover_2" src="/images/cover_01.png">
+                    <img id="cover_2" src="/images/Ep_3.png">
 
                     <video id="video3" src="/videos/Episode_Carly.mp3"></video>
                     <img id="play3" src="/images/play.png">
                     <img id="pause3" src="/images/pause.png">
+                    <img id="cover_3" src="/images/Ep_4.png">
 
-                    <video id="video4" src="/videos/test.mp4"></video>
+                    <video id="video4" src="/videos/Episode_Carly.mp3"></video>
                     <img id="play4" src="/images/play.png">
                     <img id="pause4" src="/images/pause.png">
+                    <img id="cover_4" src="/images/Ep_2.png">
 
                     <video id="video5" src="/videos/test.mp4"></video>
                     <img id="play5" src="/images/play.png">
                     <img id="pause5" src="/images/pause.png">
+                    <img id="cover_5" src="/images/Ep_5.png">
                 </a-assets>
 
             <!--Environment Model Entities-->
@@ -263,25 +273,30 @@
                 <a-image id="videoControls" src="#play" position="0 -1.086 0" scale="0.3 0.3 0.3" play-pause></a-image>
             </a-video>
 
-            <a-video class="video2" src="#video2" position="-4.259 2.505 1.907" rotation="0 90 0" width="1.6" height="1.8">
-                <a-image id="videoControls2" src="#play2" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
-                <a-image id="cover" src="#cover_2" position="-0.005 -0.028 0.012" scale="1.6 1.9 1.9"></a-image>
+            <a-video class="video3" src="#video3" position="-4.259 2.505 1.907" rotation="0 90 0" width="1.6" height="1.8">
+                <a-image id="videoControls3" src="#play3" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
+                <a-image id="cover" src="#cover_3" position="0.008 -0.028 0.012" scale="1.6 1.9 1.9"></a-image>
             </a-video>
 
-            <a-video class="video3" src="#video3" position="-4.259 2.505 -2.518" rotation="0 90 0" width="1.6" height="1.8">
-                <a-image id="videoControls3" src="#play3" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
+            <a-video class="video5" src="#video5" position="-4.259 2.505 -2.518" rotation="0 90 0" width="1.6" height="1.8">
+                <a-image id="videoControls5" src="#play5" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
+                <a-image id="cover5" src="#cover_5" position="0.008 -0.028 0.012" scale="1.6 1.9 1.9"></a-image>
             </a-video>
 
             <a-video class="video4" src="#video4" position="4.253 2.490 -3.440" rotation="0 -90 0" width="1.6" height="1.8">
                 <a-image id="videoControls4" src="#play4" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
+                <a-image id="cover4" src="#cover_4" position="0.008 -0.028 0.007" scale="1.6 1.9 1.9"></a-image>
             </a-video>
 
-            <a-video class="video5" src="#video5" position="4.253 2.490 1.263" rotation="0 -90 0" width="1.6" height="1.8">
-                <a-image id="videoControls5" src="#play5" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
+            <a-video class="video2" src="#video2" position="4.253 2.490 1.263" rotation="0 -90 0" width="1.6" height="1.8">
+                <a-image id="videoControls2" src="#play2" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
+                <a-image id="cover2" src="#cover_2" position="0.008 -0.028 0.007" scale="1.6 1.9 1.9"></a-image>
             </a-video>
         
         </a-scene>
-        <!--Play/Pause custom script-->
-        <script src="js/play-pause.js"></script>
+        
+        
+        
+
     </body>
 </html>

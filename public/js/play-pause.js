@@ -10,7 +10,7 @@ AFRAME.registerComponent('play-pause', {
         const element5 = document.querySelector('#videoControls5');
         
         element.addEventListener("click", () => {
-            console.log('%c My message here', "background: blue; color: white; padding-left:10px;");
+         
             var myVideo = document.querySelector('#video');
             var videoControls = document.querySelector('#videoControls');
             this.el.addEventListener('click', function () {
@@ -26,7 +26,7 @@ AFRAME.registerComponent('play-pause', {
         });
 
         element2.addEventListener("click", () => {
-            console.log('%c My message here', "background: red; color: white; padding-left:10px;");
+
             var myVideo2 = document.querySelector('#video2');
             var videoControls2 = document.querySelector('#videoControls2');
             this.el.addEventListener('click', function () {
@@ -42,23 +42,23 @@ AFRAME.registerComponent('play-pause', {
         });
 
         element3.addEventListener("click", () => {
-            console.log('%c My message here', "background: yellow; color: white; padding-left:10px;");
+      
             var myVideo3 = document.querySelector('#video3');
-            var videoControls3 = document.querySelector('#videoControls3');
+            var videoControls_3 = document.querySelector('#videoControls3');
             this.el.addEventListener('click', function () {
                 if (myVideo3.paused) {
                     myVideo3.play();
-                    videoControls3.setAttribute('src', '#pause3');
+                    videoControls_3.setAttribute('src', '#pause3');
                 } else {
                     myVideo3.pause();
-                    videoControls3.setAttribute('src', '#play3');
+                    videoControls_3.setAttribute('src', '#play3');
                 }
             
             });
         });
 
         element4.addEventListener("click", () => {
-            console.log('%c My message here', "background: yellow; color: white; padding-left:10px;");
+
             var myVideo4 = document.querySelector('#video4');
             var videoControls4 = document.querySelector('#videoControls4');
             this.el.addEventListener('click', function () {
@@ -74,7 +74,7 @@ AFRAME.registerComponent('play-pause', {
         });
 
         element5.addEventListener("click", () => {
-            console.log('%c My message here', "background: yellow; color: white; padding-left:10px;");
+  
             var myVideo5 = document.querySelector('#video5');
             var videoControls5 = document.querySelector('#videoControls5');
             this.el.addEventListener('click', function () {
