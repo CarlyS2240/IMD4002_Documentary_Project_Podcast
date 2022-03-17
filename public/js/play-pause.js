@@ -1,6 +1,8 @@
 AFRAME.registerComponent('play-pause', {
     init: function(){
 
+        //Tutorial for play/pause feature by Danilo Pasquariello, 'Video (A-Frame Tutorial - WebVR)', https://www.youtube.com/watch?v=5KjyTU07EHo
+
         const element = document.querySelector('#videoControls');
         const element2 = document.querySelector('#videoControls2');
         const element3 = document.querySelector('#videoControls3');

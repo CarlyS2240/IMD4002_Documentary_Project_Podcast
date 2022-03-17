@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+    
+    <!--Website Information-->
     <title>VR: Future of Education Podcast</title>
     <meta name="description" content="VR: Future of Education Podcast">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" viewport-fit=cover>
-
-    
-    
-    <!--External Components-->
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-multi-video-component/dist/aframe-multi-video-component.min.js"></script>
 
     <!--Styles-->
     <link rel="stylesheet" href="/css/loading_animation.css">
@@ -19,9 +14,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap" rel="stylesheet">
-   
+     
 
- 
+    <!--External Components-->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-multi-video-component/dist/aframe-multi-video-component.min.js"></script>
+
+    <!--Script to load in in the user interface-->
     <script> 
         function load_page(){
     
@@ -41,7 +40,7 @@
         <script src="js/sphere-env-map.js"></script>
         <script src="js/load-experience.js"></script>
        
-        
+
         <div id="includedContent"></div>    
 
         <!--A-Frame Scene-->
@@ -50,7 +49,7 @@
             <!--Sky Map-->
             <img id='skyMap' src='/textures/107_hdrmaps_com_free.jpg' crossorigin="anonymous">  
 
-            <!--Envrionment Assets-->
+            <!--Environment Assets-->
                 <a-asset-item id="white-room-obj" crossorigin="anonymous" src="/assets/whiteRoom.glb"></a-asset-item> 
                 <a-asset-item id="show-room-obj" crossorigin="anonymous" src="/assets/Show_Room.glb"></a-asset-item> 
                 <a-asset-item id="lamp-obj" crossorigin="anonymous" src="/assets/lamp.glb"></a-asset-item> 
@@ -94,14 +93,14 @@
                 </a-assets>
 
             <!--Environment Model Entities-->
-                <a-entity
-                    id="white-room-obj"
-                    gltf-model="#white-room-obj"
-                    position="0 -0.070 0"
-                    scale="1.5 1.7 1.5">
-                </a-entity>
+            <a-entity
+                id="white-room-obj"
+                gltf-model="#white-room-obj"
+                position="0 -0.070 0"
+                scale="1.5 1.7 1.5">
+            </a-entity>
 
-                <a-entity
+            <a-entity
                 id="lamp-obj"
                 gltf-model="#lamp-obj"
                 position="2.613 -0.150 4.762"
@@ -282,9 +281,7 @@
             </a-video>
         
         </a-scene>
+        <!--Play/Pause custom script-->
         <script src="js/play-pause.js"></script>
-        
-        
-
     </body>
 </html>

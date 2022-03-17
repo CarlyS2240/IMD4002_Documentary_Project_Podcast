@@ -9,12 +9,5 @@ AFRAME.registerComponent('load-experience',{
   });
 
   const loadExperience = function(){
-      //hide user gesture overlay
       document.querySelector('#user-gesture-overlay').style.display = 'none';
-
-    
-     // document.querySelector('#rotate_portrait_ID2').style.display = 'block';
-
-    
-
   }
