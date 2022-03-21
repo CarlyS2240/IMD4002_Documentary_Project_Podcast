@@ -20,8 +20,12 @@
     <script src="https://unpkg.com/aframe-multi-video-component/dist/aframe-multi-video-component.min.js"></script>
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-          
+    <!--Custom Scripts-->
+    <script src="js/sphere-env-map.js"></script>
+    <script src="js/load-experience.js"></script>
 
+    <!--Play/Pause custom script-->
+    <script src="js/play-pause.js"></script>
 
     <!--Script to load in in the user interface-->
     <script> 
@@ -68,27 +72,27 @@
             
             <!--Video Assets-->
                 <a-assets>
-                    <video id="video" src="/videos/Episode_Intro.mp3"></video>
+                    <video id="video" crossorigin="anonymous" src="/videos/Episode_Intro.mp3"></video>
                     <img id="play" src="/images/play.png">
                     <img id="pause" src="/images/pause.png">
                     <img id="cover_1" src="/images/Ep_1.png">
                     
-                    <video id="video2" src="/videos/Episode_Vickey.mp3"></video>
+                    <video id="video2" crossorigin="anonymous" src="/videos/Episode_Vickey.mp3"></video>
                     <img id="play2" src="/images/play.png">
                     <img id="pause2" src="/images/pause.png">
                     <img id="cover_2" src="/images/Ep_3.png">
 
-                    <video id="video3" src="/videos/Episode_Carly.mp3"></video>
+                    <video id="video3" crossorigin="anonymous" src="/videos/Episode_Carly.mp3"></video>
                     <img id="play3" src="/images/play.png">
                     <img id="pause3" src="/images/pause.png">
                     <img id="cover_3" src="/images/Ep_4.png">
 
-                    <video id="video4" src="/videos/Episode_Jude.mp3"></video>
+                    <video id="video4" crossorigin="anonymous" src="/videos/Episode_Jude.mp3"></video>
                     <img id="play4" src="/images/play.png">
                     <img id="pause4" src="/images/pause.png">
                     <img id="cover_4" src="/images/Ep_2.png">
 
-                    <video id="video5" src="/videos/Episode_Pauline.mp3"></video>
+                    <video id="video5" crossorigin="anonymous" src="/videos/Episode_Pauline.mp3"></video>
                     <img id="play5" src="/images/play.png">
                     <img id="pause5" src="/images/pause.png">
                     <img id="cover_5" src="/images/Ep_5.png">
@@ -287,13 +291,5 @@
             </a-video>
         
         </a-scene>
-        
-        <!--Play/Pause custom script-->
-    
-        <script src="js/sphere-env-map.js"></script>
-        <script src="js/load-experience.js"></script>
-        <script src="js/play-pause.js"></script>
-        
-
     </body>
 </html>
