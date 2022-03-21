@@ -7,25 +7,26 @@
     <meta name="description" content="VR: Future of Education Podcast">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" viewport-fit=cover>
 
+    <!--External Components-->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-multi-video-component/dist/aframe-multi-video-component.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+    <!--Custom Scripts-->
+    <script src="js/sphere-env-map.js"></script>
+    <script src="js/load-experience.js"></script>
+  
+    <!--Play/Pause custom script-->
+    <script src="js/play-pause.js"></script>
+
     <!--Styles-->
     <link rel="stylesheet" href="/css/loading_animation.css">
 
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap" rel="stylesheet">
-     
-    <!--External Components-->
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-multi-video-component/dist/aframe-multi-video-component.min.js"></script>
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-    <!--Custom Scripts-->
-    <script src="js/sphere-env-map.js"></script>
-    <script src="js/load-experience.js"></script>
-
-    <!--Play/Pause custom script-->
-    <script src="js/play-pause.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    
 
     <!--Script to load in in the user interface-->
     <script> 
@@ -240,7 +241,6 @@
                 rotation="0 -180 0">
             </a-entity>
 
-
             <a-entity id='skyBox'
                         rotation='0 240 0'
                         geometry='primitive:sphere; radius:50; segments-height:24; segments-width:24;'
@@ -252,7 +252,7 @@
                 <a-entity id="camera"
                     id = "player2"
                     camera="fov:  50;"
-                    wasd-controls='acceleration: 200'
+                    wasd-controls='acceleration: 170'
                     look-controls>
                     <a-cursor></a-cursor>
                 </a-entity>
@@ -270,7 +270,7 @@
                 <a-image id="cover" src="#cover_1" position="0.008 0.166 0.012" scale="1.6 1.9 1.9"></a-image>
             </a-video>
 
-            <a-video class="vide_3" src="#video3" position="-4.259 2.505 1.907" rotation="0 90 0" width="1.6" height="1.8">
+            <a-video class="video_3" src="#video3" position="-4.259 2.505 1.907" rotation="0 90 0" width="1.6" height="1.8">
                 <a-image id="videoControls3" src="#play3" position="0 -1.2 0" scale="0.2 0.2 0.2" play-pause></a-image>
                 <a-image id="cover" src="#cover_3" position="0.008 -0.028 0.012" scale="1.6 1.9 1.9"></a-image>
             </a-video>
