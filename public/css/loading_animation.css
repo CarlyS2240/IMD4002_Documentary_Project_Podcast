@@ -9,6 +9,8 @@
     bottom: 0;
     z-index: 999999999;
     cursor: pointer;
+    background-color: #f2c185;
+    
   }
 
   .background{
@@ -112,7 +114,7 @@
     width: 930px;
     height: 580px;
     margin: 0;
-    background: #fffaf3e8;
+    background: #fffaf3;
     flex-direction: column;
     border-radius: 12px;
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
